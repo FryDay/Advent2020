@@ -1,22 +1,11 @@
 package main
 
 import (
-	"bufio"
-	"io/ioutil"
-	"strconv"
-	"strings"
+	"github.com/FryDay/advent/lib"
 )
 
 func main() {
-	var inputInts []int
-
-	rawInputs, _ := ioutil.ReadFile("input")
-	scanner := bufio.NewScanner(strings.NewReader(string(rawInputs)))
-	scanner.Split(bufio.ScanWords)
-	for scanner.Scan() {
-		i, _ := strconv.Atoi(scanner.Text())
-		inputInts = append(inputInts, i)
-	}
+	inputInts := lib.ParseInput("input").ToInts()
 
 	partOne(inputInts)
 	partTwo(inputInts)
